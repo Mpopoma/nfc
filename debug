@@ -1,0 +1,2 @@
+../esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-objdump -S build/httpd.user1.out > /tmp/ss
+vim /tmp/ss

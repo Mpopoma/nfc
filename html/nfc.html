@@ -1,0 +1,63 @@
+  <div id="main">
+    <div class="header">
+      <h1>NFC</h1>
+    </div>
+
+    <div class="content">
+			<div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="card">
+            <h1>NFC
+              <div id="nfc-spinner" class="spinner spinner-small"></div>
+            </h1>
+            <form action="#" id="nfc-form" class="pure-form" hidden>
+              <legend>NFC action settings</legend>
+              <div class="pure-form-stacked">
+                <label>HTTP URL to send tag</label>
+                <input type="text" name="nfc-url"/>
+                <label>Device ID</label>
+                <input type="text" name="nfc-device-id"/>
+                <label>Device secret</label>
+                <input type="text" name="nfc-device-secret"/>
+                <label>Device counter</label>
+                <input type="text" name="nfc-counter"/>
+              </div>
+              <button id="nfc-button" type="submit" class="pure-button button-primary">
+                Update NFC settings!
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+			<div class="pure-g">
+        <div class="pure-u-1"><div class="card">
+          <p>The NFC support will send NFC tags touched to the Happy Bubbles NFC module to the selected HTTP URL.
+					</p>
+					<p>
+						The payload to the HTTP URL will be JSON sent over a POST request.<br />
+						The JSON will look like this:
+					</p>
+					<p style="font-family: monospace,monospace; font-size: 1em">
+							{"device_id": "CONFIG-DEVICE-ID",
+							"tag_uid": "THE-TAGS-UUID",
+							"counter": 3,
+							"hash": "7cac4442e6caf834ce20a359ff7ee9ff34525691"}
+					</p>
+					<p>
+						The device_id is the one set in the config. The tag's UUID is the unique ID from each RFID tag. The counter will increment on every request, this is used as a nonce for optional security. The 'hash' is an SHA1-based HMAC, its input is the string of the device-id, tag-ID, and counter all concatenated together with no spaces. It is then HMAC-SHA1 hashed against the secret from the config. You can use this on the backend to ensure no one is spoofing tag-hits, it's optional.
+					</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="nfc.js"></script>
+<script type="text/javascript">
+onLoad(function() {
+  fetchNFC();
+  bnd($("#nfc-form"), "submit", changeNFC);
+});
+</script>
+</body></html>
