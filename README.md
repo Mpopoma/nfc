@@ -1,3 +1,5 @@
+![Happy Bubbles Logo](happy_bubbles_logo.png?raw=true)
+
 # Happy Bubbles - Wifi NFC Device
 
 This device is in the "Happy Bubbles" series of open hardware and open source IoT and home-automation devices. The Wifi NFC device is easy to use, easy to make yourself, and cheap. 
