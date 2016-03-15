@@ -1,4 +1,4 @@
-![Happy Bubbles Logo](happy_bubbles_logo.png?raw=true)
+![Happy Bubbles Logo](../happy_bubbles_logo.png?raw=true)
 
 # Happy Bubbles - Wifi NFC Device
 
