@@ -148,7 +148,8 @@ static void ICACHE_FLASH_ATTR connect_callback(void * arg)
 	if (req->post_data != NULL) { // If there is data this is a POST request.
 		method = "POST";
 		os_sprintf(post_headers,
-				   "Content-Type: application/x-www-form-urlencoded\r\n"
+				   //"Content-Type: application/x-www-form-urlencoded\r\n"
+				   "Content-Type: application/json\r\n"
 				   "Content-Length: %d\r\n", strlen(req->post_data));
 	}
 
